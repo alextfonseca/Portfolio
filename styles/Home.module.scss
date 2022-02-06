@@ -1,0 +1,130 @@
+// introduction
+
+.introduction {
+  background-image: url("../public/icons/background.svg");
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  height: calc(100vh - 6rem);
+
+  text-align: center;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  h1 {
+    font-size: 4rem;
+    text-align: center;
+  }
+
+  p {
+    color: var(--subtitle);
+    font-size: 1.5rem;
+
+    margin-top: 1rem;
+  }
+
+  .socialButtons {
+    margin-top: 5rem;
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+  }
+}
+
+// about
+
+.about {
+  margin-top: 3.5rem;
+  padding: 2rem 0;
+
+  background: var(--section);
+
+  & > div {
+    display: flex;
+    gap: 20rem;
+  }
+
+  .myPhoto {
+    height: 400px;
+
+    border-left: 8px solid;
+    border-image: linear-gradient(125deg, var(--pink), var(--dark-purple)) 1;
+  }
+
+  .aboutMe {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+
+    h3 {
+      font-size: 1.25rem;
+      font-weight: 500;
+
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    p {
+      line-height: 1.75rem;
+      font-size: 1.125rem;
+    }
+
+    .socialLinks {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .socialButtons {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 2rem;
+    }
+  }
+}
+
+// skills
+
+.skills {
+  margin-top: 3.5rem;
+
+  .skillCards {
+    margin-top: 1.6rem;
+
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+  }
+}
+
+//services
+.services {
+  margin-top: 3.5rem;
+
+  padding: 2rem 0;
+
+  background: var(--section);
+
+  h2 {
+    text-align: center;
+  }
+
+  .cardsServices {
+    margin-top: 2rem;
+
+    display: flex;
+    justify-content: center;
+
+    flex-wrap: wrap;
+    gap: 2rem;
+  }
+}

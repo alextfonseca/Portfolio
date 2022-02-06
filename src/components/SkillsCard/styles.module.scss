@@ -1,0 +1,36 @@
+.card {
+  background: var(--section);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+
+  width: 200px;
+  height: 200px;
+
+  border: 2px solid transparent;
+
+  &:hover {
+    border-image: linear-gradient(90deg, var(--dark-purple), var(--pink)) 1;
+  }
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+
+    p {
+      font-family: "Inter", sans-serif;
+      font-size: 1.5rem;
+      font-weight: 400;
+      color: var(--subtitle);
+    }
+  }
+
+  .image {
+    width: 60px;
+    height: 60px;
+  }
+}

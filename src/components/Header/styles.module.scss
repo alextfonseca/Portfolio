@@ -1,0 +1,22 @@
+.header {
+  background: var(--section);
+
+  padding: 2rem 0;
+
+  // container
+  div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  nav ul {
+    display: flex;
+    gap: 2rem;
+
+    li a {
+      font-size: 1.25rem;
+      font-weight: 500;
+    }
+  }
+}
