@@ -8,7 +8,7 @@ interface SocialLinkProps {
 export const SocialLink = ({ image, alt }: SocialLinkProps) => {
   return (
     <a href="#">
-      <Image src={image} alt={alt} />
+      <Image src={image} alt={alt} width={30} height={30} />
     </a>
   );
 };

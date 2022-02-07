@@ -12,6 +12,8 @@ export const Header = () => {
           <Image
             src={Logo}
             alt="logo do sites escrito Alex T.F. entre tags do html 5"
+            width={151}
+            height={27}
           />
         </a>
 

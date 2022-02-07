@@ -12,7 +12,7 @@ export const CardService = ({ image, text, title }: CardServiceProps) => {
   return (
     <div className={styles.card}>
       <div className={styles.content}>
-        <Image src={image} alt={text} />
+        <Image src={image} alt={text} width={60} height={60} />
 
         <h3>{title}</h3>
 

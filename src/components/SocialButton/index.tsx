@@ -11,14 +11,14 @@ export const SocialButton = ({ text, image, color }: SocialButtonProps) => {
   if (color == "purple") {
     return (
       <a className={styles.purple} href="#">
-        <Image src={image} alt={`Ícone ${text}`} />
+        <Image src={image} alt={`Ícone ${text}`} height={30} width={30} />
         {text}
       </a>
     );
   } else {
     return (
       <a className={styles.pink} href="#">
-        <Image src={image} alt={`Ícone ${text}`} />
+        <Image src={image} alt={`Ícone ${text}`} height={30} width={30} />
         {text}
       </a>
     );

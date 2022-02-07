@@ -1,14 +1,20 @@
 import type { NextPage } from "next";
 import Image from "next/image";
 import styles from "../../styles/Home.module.scss";
+import Head from "next/head";
 import { Header } from "../components/Header";
 
 //componentes
 import { SocialButton } from "../components/SocialButton";
 import { SocialLink } from "../components/SocialLink";
 import { SkillCard } from "../components/SkillsCard";
+import { CardService } from "../components/CardService";
+
+// carousel
+import { Carousel } from "../components/Carousel";
 
 // icons
+import Logo from "/public/icons/logo.svg";
 import Linkedin from "/public/icons/linkedinIconButton.svg";
 import Github from "/public/icons/githubIconButton.svg";
 import MoreContent from "/public/icons/moreIcon.svg";
@@ -31,14 +37,14 @@ import Next from "/public/icons/nextIcon.svg";
 import Typescript from "/public/icons/typescriptIcon.svg";
 import Git from "/public/icons/gitIcon.svg";
 import Figma from "/public/icons/figmaIcon.svg";
-import { CardService } from "../components/CardService";
+
+import MyPhoto from "/public/images/myPhoto.png";
 
 //services
 import Construction from "/public/icons/codeIcon.svg";
 import SEO from "/public/icons/awardIcon.svg";
 import Animation from "/public/icons/loaderIcon.svg";
 import Personalization from "/public/icons/penIcon.svg";
-import Head from "next/head";
 
 const Home: NextPage = () => {
   return (
@@ -67,6 +73,8 @@ const Home: NextPage = () => {
           <Image
             src={MoreContent}
             alt="Ícone de uma seta apontando para baixo representando mais conteúdo"
+            width={25}
+            height={25}
           />
         </a>
       </section>
@@ -76,12 +84,11 @@ const Home: NextPage = () => {
           <div className="container">
             <div className={styles.myPhoto}>
               <Image
-                src={
-                  "https://avatars.githubusercontent.com/u/64914651?s=400&u=bb97a3f82fd533b497b192da51a67bbdb51a16ec&v=4"
-                }
+                src={MyPhoto}
                 alt="Minha foto"
                 width={300}
-                height={400}
+                height={"400"}
+                layout="fixed"
               />
             </div>
 
@@ -92,6 +99,8 @@ const Home: NextPage = () => {
                 <Image
                   src={Globe}
                   alt="Ícone de um globo na cor verde azulado"
+                  width={30}
+                  height={30}
                 />
                 São Roque - SP, Brasil
               </h3>
@@ -100,6 +109,8 @@ const Home: NextPage = () => {
                 <Image
                   src={Book}
                   alt="Ícone de um livro na cor verde azulado"
+                  width={30}
+                  height={30}
                 />
                 Fatec - São Roque - SP
               </h3>
@@ -174,7 +185,21 @@ const Home: NextPage = () => {
             </div>
           </div>
         </section>
+
+        <section className={styles.projects}>
+          <div className="container">
+            <h2>Projetos</h2>
+            <Carousel />
+          </div>
+        </section>
       </main>
+
+      <footer className={styles.footer}>
+        <div className="container">
+          <p>@2022 - Alex T.F.</p>
+          <Image src={Logo} alt="Logo" />
+        </div>
+      </footer>
     </div>
   );
 };
