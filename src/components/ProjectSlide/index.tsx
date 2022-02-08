@@ -1,5 +1,4 @@
 import Image from "next/image";
-import { SocialButton } from "../SocialButton";
 
 import styles from "./styles.module.scss";
 
@@ -9,9 +8,13 @@ import Link from "/public/icons/link.svg";
 export const ProjectSlide = () => {
   return (
     <div className={styles.card}>
-      <div className={styles.card}>
-        <Image src={Project} alt="Imagem do projeto" width={520} height={300} />
-      </div>
+      <Image
+        src={Project}
+        alt="Imagem do projeto"
+        width={520}
+        height={300}
+        layout="responsive"
+      />
 
       <h3>Kenai</h3>
 

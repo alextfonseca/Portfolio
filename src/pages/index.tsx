@@ -1,6 +1,8 @@
-import type { NextPage } from "next";
+import type { GetStaticProps, NextPage } from "next";
 import Image from "next/image";
 import styles from "../../styles/Home.module.scss";
+
+import Prismic from "@prismicio/client";
 import Head from "next/head";
 import { Header } from "../components/Header";
 

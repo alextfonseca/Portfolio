@@ -1,5 +1,5 @@
 .card {
-  padding-right: 2rem;
+  padding: 1rem;
 
   h3 {
     margin: 2rem 0 1rem 0;
@@ -30,9 +30,8 @@
   .button {
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 1rem;
-
-    max-width: 300px;
 
     padding: 0.5rem 1rem;
     margin-top: 3rem;
@@ -44,9 +43,9 @@
     border: 4px solid var(--blue-green);
     box-shadow: 2px 2px 5px rgba(16, 121, 242, 0.3);
 
-    transition: padding 0.3s;
+    transition: filter 0.3s;
     &:hover {
-      padding: 0.5rem 3rem;
+      filter: brightness(0.7);
     }
   }
 }
