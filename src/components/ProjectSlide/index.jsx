@@ -6,25 +6,13 @@ import Project from "/public/images/kenai.png";
 import Link from "/public/icons/link.svg";
 import { SocialButton } from "../SocialButton";
 
-interface ProjectSlideProps {
-  title: string;
-  aboutText: string;
-  visitLink: string;
-  technologies: [text: string];
-  imageUrl: string;
-}
-
-// interface technologyProps {
-//   technology: [text: string];
-// }
-
 export const ProjectSlide = ({
   title,
   aboutText,
   visitLink,
   technologies,
   imageUrl,
-}: ProjectSlideProps) => {
+}) => {
   return (
     <div className={styles.card}>
       <img src={imageUrl} alt={aboutText} />
@@ -34,7 +22,7 @@ export const ProjectSlide = ({
       <p>{aboutText}</p>
 
       <ul>
-        {technologies.map((technology: any) => {
+        {technologies.map((technology) => {
           return <li key={technology.text}>{technology.text}</li>;
         })}
       </ul>

@@ -1,11 +1,10 @@
 import "../../styles/globals.scss";
-import type { AppProps } from "next/app";
 
 // Import css files
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-function MyApp({ Component, pageProps }: AppProps) {
+function MyApp({ Component, pageProps }) {
   return <Component {...pageProps} />;
 }
 

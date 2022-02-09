@@ -1,4 +1,3 @@
-import type { GetStaticProps } from "next";
 import Image from "next/image";
 import Head from "next/head";
 
@@ -51,11 +50,7 @@ import SEO from "/public/icons/awardIcon.svg";
 import Animation from "/public/icons/loaderIcon.svg";
 import Personalization from "/public/icons/penIcon.svg";
 
-interface responseProps {
-  response: object;
-}
-
-const Home = ({ response }: responseProps) => {
+const Home = ({ response }) => {
   return (
     <div id="top">
       <Head>
@@ -251,7 +246,7 @@ const Home = ({ response }: responseProps) => {
 
 export default Home;
 
-export const getStaticProps: GetStaticProps = async () => {
+export const getStaticProps = async () => {
   const prismic = getPrismicClient();
 
   // buscando os dados

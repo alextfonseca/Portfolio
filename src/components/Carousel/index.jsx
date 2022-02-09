@@ -5,7 +5,7 @@ import { ProjectSlide } from "../ProjectSlide";
 // conversor de formato do prismic para texto ou html
 import { RichText } from "prismic-dom";
 
-export function Carousel({ data }: any) {
+export function Carousel({ data }) {
   var settings = {
     dots: false,
     infinite: true,
@@ -59,7 +59,7 @@ export function Carousel({ data }: any) {
     ],
   };
 
-  const projects = data.results.map((project: any) => {
+  const projects = data.results.map((project) => {
     return {
       slug: project.uid,
       title: RichText.asText(project.data.title),
@@ -72,7 +72,7 @@ export function Carousel({ data }: any) {
 
   return (
     <Slider {...settings}>
-      {projects.map((project: any) => {
+      {projects.map((project) => {
         return (
           <ProjectSlide
             key={project.slug}
