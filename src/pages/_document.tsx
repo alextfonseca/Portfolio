@@ -26,10 +26,6 @@ export default class MyDocument extends Document {
           />
 
           <meta
-            property="og:image"
-            content="https://avatars.githubusercontent.com/u/64914651?s=400&u=5c0f905c2662f3948514eade3c9fa29883db3fcb&v=4"
-          />
-          <meta
             property="og:title"
             content="Alex Teixeira da Fonseca - Front-end developer and web developer"
           />
