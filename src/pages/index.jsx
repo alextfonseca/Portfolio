@@ -50,7 +50,7 @@ import SEO from "/public/icons/awardIcon.svg";
 import Animation from "/public/icons/loaderIcon.svg";
 import Personalization from "/public/icons/penIcon.svg";
 
-const Home = ({ response }) => {
+export default function Home({ response }) {
   return (
     <div id="top">
       <Head>
@@ -242,28 +242,15 @@ const Home = ({ response }) => {
       </footer>
     </div>
   );
-};
+}
 
 export const getStaticProps = async () => {
   const prismic = getPrismicClient();
 
   // buscando os dados
-  const response = await prismic.query(
-    [Prismic.predicates.at("document.type", "project")],
-    {
-      // o que queremos das publicações
-      fetch: [
-        "project.projectimage",
-        "project.title",
-        "project.about",
-        "project.technologies",
-        "project.link",
-      ],
-
-      // quantos posts você quer retornar
-      pageSize: 10,
-    },
-  );
+  const response = await prismic.query([
+    Prismic.predicates.at("document.type", "project"),
+  ]);
 
   return {
     props: {
@@ -271,5 +258,3 @@ export const getStaticProps = async () => {
     },
   };
 };
-
-export default Home;
