@@ -244,8 +244,6 @@ const Home = ({ response }) => {
   );
 };
 
-export default Home;
-
 export const getStaticProps = async () => {
   const prismic = getPrismicClient();
 
@@ -263,7 +261,7 @@ export const getStaticProps = async () => {
       ],
 
       // quantos posts você quer retornar
-      pageSize: 100,
+      pageSize: 10,
     },
   );
 
@@ -273,3 +271,5 @@ export const getStaticProps = async () => {
     },
   };
 };
+
+export default Home;
