@@ -5,6 +5,10 @@
   list-style: none;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 :root {
   --background: #151515;
   --section: #121212;
@@ -39,6 +43,7 @@
 body {
   background: var(--background);
   color: var(--text);
+  -webkit-font-smoothing: antialiased;
 }
 
 body,

@@ -1,14 +1,21 @@
 import Image from "next/image";
+import { useState } from "react";
 
 import styles from "./styles.module.scss";
 
 import Logo from "/public/icons/logo.svg";
 
 export const Header = () => {
+  const [hiddenMenu, setHiddenMenu] = useState(false);
+
+  function handleMenuButton() {
+    setHiddenMenu(!hiddenMenu);
+  }
+
   return (
     <header className={styles.header}>
       <div className="container">
-        <a href="#">
+        <a href="#top">
           <Image
             src={Logo}
             alt="logo do sites escrito Alex T.F. entre tags do html 5"
@@ -18,18 +25,36 @@ export const Header = () => {
         </a>
 
         <nav>
-          <ul>
+          <button
+            className={styles.menuButton}
+            onClick={handleMenuButton}
+            aria-label="Abrir menu"
+          ></button>
+          <ul className={hiddenMenu ? styles.active : styles.disabled}>
+            <button
+              className={styles.closeMenuButton}
+              onClick={handleMenuButton}
+              aria-label="Fechar menu"
+            ></button>
             <li>
-              <a href="#">Sobre</a>
+              <a onClick={handleMenuButton} href="#about">
+                Sobre
+              </a>
             </li>
             <li>
-              <a href="#">Conhecimento</a>
+              <a onClick={handleMenuButton} href="#skills">
+                Conhecimento
+              </a>
             </li>
             <li>
-              <a href="#">Serviços</a>
+              <a onClick={handleMenuButton} href="#services">
+                Serviços
+              </a>
             </li>
             <li>
-              <a href="#">Projetos</a>
+              <a onClick={handleMenuButton} href="#projects">
+                Projetos
+              </a>
             </li>
           </ul>
         </nav>

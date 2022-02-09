@@ -2,7 +2,10 @@ import React from "react";
 import Slider from "react-slick";
 import { ProjectSlide } from "../ProjectSlide";
 
-export function Carousel() {
+// conversor de formato do prismic para texto ou html
+import { RichText } from "prismic-dom";
+
+export function Carousel({ data }: any) {
   var settings = {
     dots: false,
     infinite: true,
@@ -41,7 +44,7 @@ export function Carousel() {
         },
       },
       {
-        breakpoint: 800,
+        breakpoint: 1300,
         settings: {
           dots: false,
           infinite: true,
@@ -55,14 +58,32 @@ export function Carousel() {
       },
     ],
   };
+
+  const projects = data.results.map((project: any) => {
+    return {
+      slug: project.uid,
+      title: RichText.asText(project.data.title),
+      aboutText: RichText.asText(project.data.about),
+      visitLink: project.data.link.url,
+      technologies: project.data.technologies,
+      imageUrl: project.data.projectimage.url,
+    };
+  });
+
   return (
     <Slider {...settings}>
-      <ProjectSlide />
-      <ProjectSlide />
-      <ProjectSlide />
-      <ProjectSlide />
-      <ProjectSlide />
-      <ProjectSlide />
+      {projects.map((project: any) => {
+        return (
+          <ProjectSlide
+            key={project.slug}
+            title={project.title}
+            aboutText={project.aboutText}
+            visitLink={project.visitLink}
+            technologies={project.technologies}
+            imageUrl={project.imageUrl}
+          />
+        );
+      })}
     </Slider>
   );
 }

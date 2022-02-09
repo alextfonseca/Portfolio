@@ -1,21 +1,23 @@
-import type { GetStaticProps, NextPage } from "next";
+import type { GetStaticProps } from "next";
 import Image from "next/image";
+import Head from "next/head";
+
+// Prismic CMS
+import { getPrismicClient } from "../services/prismic";
+import Prismic from "@prismicio/client";
+
+// style
 import styles from "../../styles/Home.module.scss";
 
-import Prismic from "@prismicio/client";
-import Head from "next/head";
-import { Header } from "../components/Header";
-
 //componentes
+import { Header } from "../components/Header";
 import { SocialButton } from "../components/SocialButton";
 import { SocialLink } from "../components/SocialLink";
 import { SkillCard } from "../components/SkillsCard";
 import { CardService } from "../components/CardService";
-
-// carousel
 import { Carousel } from "../components/Carousel";
 
-// icons
+// -- icons --
 import Logo from "/public/icons/logo.svg";
 import Linkedin from "/public/icons/linkedinIconButton.svg";
 import Github from "/public/icons/githubIconButton.svg";
@@ -40,17 +42,22 @@ import Typescript from "/public/icons/typescriptIcon.svg";
 import Git from "/public/icons/gitIcon.svg";
 import Figma from "/public/icons/figmaIcon.svg";
 
+// myPhoto
 import MyPhoto from "/public/images/myPhoto.png";
 
-//services
+//services icons
 import Construction from "/public/icons/codeIcon.svg";
 import SEO from "/public/icons/awardIcon.svg";
 import Animation from "/public/icons/loaderIcon.svg";
 import Personalization from "/public/icons/penIcon.svg";
 
-const Home: NextPage = () => {
+interface responseProps {
+  response: object;
+}
+
+const Home = ({ response }: responseProps) => {
   return (
-    <div>
+    <div id="top">
       <Head>
         <title>Desenvolvedor web | Alex T.F.</title>
       </Head>
@@ -66,23 +73,35 @@ const Home: NextPage = () => {
           </p>
 
           <div className={styles.socialButtons}>
-            <SocialButton color="purple" text="linkedIn" image={Linkedin} />
-            <SocialButton color="pink" text="github" image={Github} />
+            <SocialButton
+              link={
+                "https://www.linkedin.com/in/alex-teixeira-da-fonseca-5a99931a2/"
+              }
+              color="purple"
+              text="linkedIn"
+              image={Linkedin}
+            />
+            <SocialButton
+              link={"https://github.com/alextfonseca"}
+              color="pink"
+              text="github"
+              image={Github}
+            />
           </div>
         </div>
 
-        <a href="#" className={styles.moreContent}>
+        <a href="#about" className={styles.moreContent}>
           <Image
             src={MoreContent}
             alt="Ícone de uma seta apontando para baixo representando mais conteúdo"
-            width={25}
-            height={25}
+            width={30}
+            height={30}
           />
         </a>
       </section>
 
       <main>
-        <section className={styles.about}>
+        <section className={styles.about} id="about">
           <div className="container">
             <div className={styles.myPhoto}>
               <Image
@@ -127,20 +146,44 @@ const Home: NextPage = () => {
               </p>
 
               <div className={styles.socialLinks}>
-                <SocialLink image={LinkedinLink} alt="LinkedIn" />
-                <SocialLink image={GithubLink} alt="Github" />
-                <SocialLink image={Instagram} alt="Instagram" />
+                <SocialLink
+                  image={LinkedinLink}
+                  alt="LinkedIn"
+                  link={
+                    "https://www.linkedin.com/in/alex-teixeira-da-fonseca-5a99931a2/"
+                  }
+                />
+                <SocialLink
+                  image={GithubLink}
+                  alt="Github"
+                  link={"https://github.com/alextfonseca"}
+                />
+                <SocialLink
+                  image={Instagram}
+                  alt="Instagram"
+                  link={"https://www.instagram.com/alextfonseca/"}
+                />
               </div>
 
               <div className={styles.socialButtons}>
-                <SocialButton color="pink" text="Whatsapp" image={Whatsapp} />
-                <SocialButton color="purple" text="E-mail" image={Email} />
+                <SocialButton
+                  link={"https://web.whatsapp.com/send?phone=5511976184659"}
+                  color="purple"
+                  text="Whatsapp"
+                  image={Whatsapp}
+                />
+                <SocialButton
+                  link={"mailto:alexatf2014@gmail.com?subject=Hello"}
+                  color="pink"
+                  text="E-mail"
+                  image={Email}
+                />
               </div>
             </div>
           </div>
         </section>
 
-        <section className={styles.skills}>
+        <section className={styles.skills} id="skills">
           <div className="container">
             <h2>Conhecimentos</h2>
 
@@ -159,7 +202,7 @@ const Home: NextPage = () => {
           </div>
         </section>
 
-        <section className={styles.services}>
+        <section className={styles.services} id="services">
           <div className="container">
             <h2>Serviços</h2>
 
@@ -188,10 +231,10 @@ const Home: NextPage = () => {
           </div>
         </section>
 
-        <section className={styles.projects}>
+        <section className={styles.projects} id="projects">
           <div className="container">
             <h2>Projetos</h2>
-            <Carousel />
+            <Carousel data={response} />
           </div>
         </section>
       </main>
@@ -207,3 +250,31 @@ const Home: NextPage = () => {
 };
 
 export default Home;
+
+export const getStaticProps: GetStaticProps = async () => {
+  const prismic = getPrismicClient();
+
+  // buscando os dados
+  const response = await prismic.query(
+    [Prismic.predicates.at("document.type", "project")],
+    {
+      // o que queremos das publicações
+      fetch: [
+        "project.projectimage",
+        "project.title",
+        "project.about",
+        "project.technologies",
+        "project.link",
+      ],
+
+      // quantos posts você quer retornar
+      pageSize: 100,
+    },
+  );
+
+  return {
+    props: {
+      response,
+    },
+  };
+};

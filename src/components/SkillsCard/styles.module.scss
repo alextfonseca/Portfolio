@@ -6,14 +6,13 @@
   justify-content: center;
   gap: 1rem;
 
+  position: relative;
+  overflow: hidden;
+
   width: 200px;
   height: 200px;
 
-  border: 2px solid transparent;
-
-  &:hover {
-    border-image: linear-gradient(90deg, var(--dark-purple), var(--pink)) 1;
-  }
+  border-radius: 0.125rem;
 
   .content {
     display: flex;
@@ -33,4 +32,35 @@
     width: 60px;
     height: 60px;
   }
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(-125deg, var(--pink), rgba(16, 215, 226, 0));
+  transition: all 0.5s;
+}
+
+.card:hover::before {
+  left: 0;
+}
+
+.card::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: -100%;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(-125deg, rgba(16, 215, 226, 0), var(--pink));
+
+  transition: all 0.5s;
+}
+
+.card:hover::after {
+  right: 0;
 }

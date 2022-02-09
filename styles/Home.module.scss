@@ -1,3 +1,13 @@
+.socialButtons {
+  margin-top: 5rem;
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+}
+
 // introduction
 
 .introduction {
@@ -5,7 +15,7 @@
   background-size: cover;
   background-position: center;
   width: 100%;
-  height: calc(100vh - 6rem);
+  height: calc(100vh - 3rem);
 
   text-align: center;
 
@@ -15,6 +25,7 @@
   align-items: center;
 
   h1 {
+    margin-top: 4rem;
     font-size: 4rem;
     text-align: center;
   }
@@ -26,14 +37,20 @@
     margin-top: 1rem;
   }
 
-  .socialButtons {
-    margin-top: 5rem;
-    width: 100%;
+  .moreContent {
+    position: absolute;
+    bottom: 0;
+    animation: moreContent 2s infinite;
+  }
+}
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 2rem;
+@keyframes moreContent {
+  0%,
+  100% {
+    bottom: 20px;
+  }
+  50% {
+    bottom: 0;
   }
 }
 
@@ -63,7 +80,7 @@
   .aboutMe {
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: space-between;
 
     h3 {
       font-size: 1.25rem;
@@ -86,6 +103,9 @@
     }
 
     .socialButtons {
+      margin-top: 0;
+      width: 100%;
+
       display: flex;
       align-items: center;
       justify-content: center;
@@ -157,5 +177,34 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+  }
+}
+
+// responsive
+
+@media (max-width: 900px) {
+  .about {
+    margin-top: 3.5rem;
+    padding: 2rem 0;
+
+    height: 400px;
+
+    display: flex;
+    align-items: center;
+
+    & > div {
+      display: block;
+    }
+
+    .myPhoto {
+      display: none;
+    }
+
+    .aboutMe {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 1rem;
+    }
   }
 }
