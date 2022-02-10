@@ -136,8 +136,9 @@ export default function Home({ response }) {
                 mobile. <br />
                 Focado no mundo JavaScript - React.js, Next.js e React-Native.
                 <br />
-                `&1uot` O aprendizado é contínuo, e sempre haverá o próximo
-                nível 🚀`&1uot`
+                <cite>
+                  O aprendizado é contínuo, e sempre haverá o próximo nível 🚀
+                </cite>
               </p>
 
               <div className={styles.socialLinks}>
@@ -256,5 +257,6 @@ export const getStaticProps = async () => {
     props: {
       response,
     },
+    revalidate: 60 * 60,
   };
 };

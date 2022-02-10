@@ -1,8 +1,5 @@
-import Image from "next/image";
-
 import styles from "./styles.module.scss";
 
-import Project from "/public/images/kenai.png";
 import Link from "/public/icons/link.svg";
 import { SocialButton } from "../SocialButton";
 
