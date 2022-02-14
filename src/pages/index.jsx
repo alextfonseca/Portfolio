@@ -61,7 +61,7 @@ export default function Home({ response }) {
 
       <section className={styles.introduction}>
         <div className="container">
-          <h1>Especialista em desenvolvimento front-end e web</h1>
+          <h1>Desenvolvimento front-end e web</h1>
           <p>
             Desenvolvo sua marca no mundo on-line com qualidade, velocidade e
             tecnologia
