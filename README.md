@@ -1,4 +1,4 @@
-# Kenai
+# Portfolio
 
 <img src="./public/images/portfolio.png" alt="foto do projeto">
 
