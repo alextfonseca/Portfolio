@@ -17,38 +17,38 @@ import { CardService } from "../components/CardService";
 import { Carousel } from "../components/Carousel";
 
 // -- icons --
-import Logo from "/public/icons/logo.svg";
-import Linkedin from "/public/icons/linkedinIconButton.svg";
-import Github from "/public/icons/githubIconButton.svg";
-import MoreContent from "/public/icons/moreIcon.svg";
-import Globe from "/public/icons/locationIcon.svg";
-import Book from "/public/icons/bookIcon.svg";
-import LinkedinLink from "/public/icons/linkedinIcon.svg";
-import GithubLink from "/public/icons/githubIcon.svg";
-import Instagram from "/public/icons/instagramIcon.svg";
-import Whatsapp from "/public/icons/whatsappIcon.svg";
-import Email from "/public/icons/mailIcon.svg";
+import Logo from "../../public/icons/logo.svg";
+import Linkedin from "../../public/icons/linkedinIconButton.svg";
+import Github from "../../public/icons/githubIconButton.svg";
+import MoreContent from "../../public/icons/moreIcon.svg";
+import Globe from "../../public/icons/locationIcon.svg";
+import Book from "../../public/icons/bookIcon.svg";
+import LinkedinLink from "../../public/icons/linkedinIcon.svg";
+import GithubLink from "../../public/icons/githubIcon.svg";
+import Instagram from "../../public/icons/instagramIcon.svg";
+import Whatsapp from "../../public/icons/whatsappIcon.svg";
+import Email from "../../public/icons/mailIcon.svg";
 
 // skills icons
-import Html from "/public/icons/htmlIcon.svg";
-import Css from "/public/icons/cssIcon.svg";
-import Sass from "/public/icons/sassIcon.svg";
-import Bootstrap from "/public/icons/bootstrapIcon.svg";
-import JavaScript from "/public/icons/javascriptIcon.svg";
-import React from "/public/icons/reactIcon.svg";
-import Next from "/public/icons/nextIcon.svg";
-import Typescript from "/public/icons/typescriptIcon.svg";
-import Git from "/public/icons/gitIcon.svg";
-import Figma from "/public/icons/figmaIcon.svg";
+import Html from "../../public/icons/htmlIcon.svg";
+import Css from "../../public/icons/cssIcon.svg";
+import Sass from "../../public/icons/sassIcon.svg";
+import Bootstrap from "../../public/icons/bootstrapIcon.svg";
+import JavaScript from "../../public/icons/javascriptIcon.svg";
+import React from "../../public/icons/reactIcon.svg";
+import Next from "../../public/icons/nextIcon.svg";
+import Typescript from "../../public/icons/typescriptIcon.svg";
+import Git from "../../public/icons/gitIcon.svg";
+import Figma from "../../public/icons/figmaIcon.svg";
 
 // myPhoto
-import MyPhoto from "/public/images/myPhoto.png";
+import MyPhoto from "../../public/images/myPhoto.png";
 
 //services icons
-import Construction from "/public/icons/codeIcon.svg";
-import SEO from "/public/icons/awardIcon.svg";
-import Animation from "/public/icons/loaderIcon.svg";
-import Personalization from "/public/icons/penIcon.svg";
+import Construction from "../../public/icons/codeIcon.svg";
+import SEO from "../../public/icons/awardIcon.svg";
+import Animation from "../../public/icons/loaderIcon.svg";
+import Personalization from "../../public/icons/penIcon.svg";
 
 export default function Home({ response }) {
   return (
@@ -249,9 +249,12 @@ export const getStaticProps = async () => {
   const prismic = getPrismicClient();
 
   // buscando os dados
-  const response = await prismic.query([
-    Prismic.predicates.at("document.type", "project"),
-  ]);
+  const response = await prismic.query(
+    [Prismic.predicates.at("document.type", "project")],
+    {
+      orderings: "[document.first_publication_date desc]",
+    },
+  );
 
   return {
     props: {

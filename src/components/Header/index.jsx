@@ -3,7 +3,7 @@ import { useState } from "react";
 
 import styles from "./styles.module.scss";
 
-import Logo from "/public/icons/logo.svg";
+import Logo from "../../../public/icons/logo.svg";
 
 export const Header = () => {
   const [hiddenMenu, setHiddenMenu] = useState(false);

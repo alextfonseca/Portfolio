@@ -1,6 +1,6 @@
 import styles from "./styles.module.scss";
 
-import Link from "/public/icons/link.svg";
+import Link from "../../../public/icons/link.svg";
 import { SocialButton } from "../SocialButton";
 
 export const ProjectSlide = ({
